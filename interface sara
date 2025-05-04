@@ -1,0 +1,31 @@
+import tkinter as tk
+import random
+
+def choisir_mot():
+    mots = ["python", "ordinateur", "intelligence", "programmation", "algorithme"]
+    return mots[random.randint(0, len(mots) - 1)]
+
+def afficher_mot_cache(mot, lettres_trouvees):
+    return " ".join([lettre if lettre in lettres_trouvees else "_" for lettre in mot])
+
+def choisir_une_lettre(valeur):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    return valeur in alphabet  
+
+def nouvelle_partie():
+    global mot_a_trouver, lettres_trouvees, mot_affiche
+    mot_a_trouver = choisir_mot()
+    lettres_trouvees = set()
+    mot_affiche.set(afficher_mot_cache(mot_a_trouver, lettres_trouvees))
+
+root = tk.Tk()
+root.title("Jeu du Pendu")
+root.geometry("300x150")
+
+mot_affiche = tk.StringVar()
+nouvelle_partie()  
+
+interface_jeu = tk.Label(root, textvariable=mot_affiche, font=("Arial", 14))
+interface_jeu.pack(pady=10)
+
+root.mainloop()
