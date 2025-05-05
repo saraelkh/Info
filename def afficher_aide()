@@ -1,0 +1,11 @@
+def afficher_aide():
+    regles = (
+        "🎯 Règles du jeu du Pendu :\n\n"
+        "- Un mot est choisi aléatoirement.\n"
+        "- À chaque tour, vous proposez une lettre.\n"
+        "- Si la lettre est dans le mot, elle est dévoilée.\n"
+        "- Sinon, une partie du pendu est dessinée.\n"
+        "- Vous avez 6 tentatives avant d'être pendu !\n"
+        "- Le jeu se termine quand le mot est trouvé ou perdu."
+    )
+    messagebox.showinfo("Aide - Règles du jeu", regles)
