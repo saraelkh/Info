@@ -1,4 +1,9 @@
 def choisir_mot():
-    with open("mots.txt", encoding="utf-8") as fichier:
-        mots = [ligne.strip().lower() for ligne in fichier if ligne.strip()]
+    fichier = open("mots.txt", encoding="utf-8")
+    mots = []
+    for ligne in fichier:
+        ligne = ligne.strip()
+        if ligne:
+            mots.append(ligne.lower())
+    fichier.close()
     return random.choice(mots)
